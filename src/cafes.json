@@ -1,0 +1,115 @@
+[
+    {
+        "id": 1,
+        "name": "Expresso Tradicional",
+        "price": 9.90,
+        "description": "O tradicional café feito com água quente e grãos moídos",
+        "tags": ["TRADICIONAL"],
+        "image": "https://www.datocms-assets.com/60403/1687639458-type-expresso.png"
+    },
+    {
+        "id": 2,
+        "name": "Expresso Americano",
+        "price": 9.90,
+        "description": "Expresso diluído, menos intenso que o tradicional",
+        "tags": ["TRADICIONAL"],
+        "image": "https://www.datocms-assets.com/60403/1687639454-type-americano.png"
+    },
+    {
+        "id": 3,
+        "name": "Expresso Cremoso",
+        "price": 9.90,
+        "description": "Café expresso tradicional com espuma cremosa",
+        "tags": ["TRADICIONAL"],
+        "image": "https://www.datocms-assets.com/60403/1687639426-type-expresso-cremoso.png"
+    },
+    {
+        "id": 4,
+        "name": "Expresso Gelado",
+        "price": 9.90,
+        "description": "Bebida preparada com café expresso e cubos de gelo",
+        "tags": ["TRADICIONAL", "GELADO"],
+        "image": "https://www.datocms-assets.com/60403/1687639406-type-cafe-gelado.png"
+    },
+    {
+        "id": 5,
+        "name": "Café com Leite",
+        "price": 9.90,
+        "description": "Meio a meio de expresso tradicional com leite vaporizado",
+        "tags": ["TRADICIONAL", "COM LEITE"],
+        "image": "https://www.datocms-assets.com/60403/1687639401-type-cafe-com-leite.png"
+    },
+    {
+        "id": 6,
+        "name": "Latte",
+        "price": 9.90,
+        "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+        "tags": ["TRADICIONAL", "COM LEITE"],
+        "image": "https://www.datocms-assets.com/60403/1687639440-type-latte.png"
+    },
+    {
+        "id": 7,
+        "name": "Capuccino",
+        "price": 9.90,
+        "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
+        "tags": ["TRADICIONAL", "COM LEITE"],
+        "image": "https://www.datocms-assets.com/60403/1687639412-type-capuccino.png"
+    },
+    {
+        "id": 8,
+        "name": "Macchiato",
+        "price": 9.90,
+        "description": "Café expresso misturado com um pouco de leite quente e espuma",
+        "tags": ["TRADICIONAL", "COM LEITE"],
+        "image": "https://www.datocms-assets.com/60403/1687639445-type-macchiato.png"
+    },
+    {
+        "id": 9,
+        "name": "Mocaccino",
+        "price": 9.90,
+        "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+        "tags": ["TRADICIONAL", "COM LEITE"],
+        "image": "https://www.datocms-assets.com/60403/1687639449-type-mochaccino.png"
+    },
+    {
+        "id": 10,
+        "name": "Chocolate Quente",
+        "price": 9.90,
+        "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+        "tags": ["ESPECIAL", "COM LEITE"],
+        "image": "https://www.datocms-assets.com/60403/1687639416-type-chocolate-quente.png"
+    },
+    {
+        "id": 11,
+        "name": "Cubano",
+        "price": 9.90,
+        "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+        "tags": ["ESPECIAL", "ALCOÓLICO", "GELADO"],
+        "image": "https://www.datocms-assets.com/60403/1687639422-type-cubano.png"
+    },
+    {
+        "id": 12,
+        "name": "Havaiano",
+        "price": 9.90,
+        "description": "Bebida adocicada preparada com café e leite de coco",
+        "tags": ["ESPECIAL"],
+        "image": "https://www.datocms-assets.com/60403/1687639431-type-havaiano.png"
+    },
+    {
+        "id": 13,
+        "name": "Árabe",
+        "price": 9.90,
+        "description": "Bebida preparada com grãos de café árabe e especiarias",
+        "tags": ["ESPECIAL"],
+        "image": "https://www.datocms-assets.com/60403/1687639396-type-arabe.png"
+    },
+    {
+        "id": 14,
+        "name": "Irlandês",
+        "price": 9.90,
+        "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+        "tags": ["ESPECIAL", "ALCOÓLICO"],
+        "image": "https://www.datocms-assets.com/60403/1687639436-type-irlandes.png"
+    }
+
+]
