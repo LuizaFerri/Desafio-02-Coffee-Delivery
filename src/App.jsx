@@ -1,11 +1,14 @@
-import { Router } from "./Router"
+import { Router } from "./Router";
 import { BrowserRouter } from "react-router-dom";
+import { CartProvider } from "./Context/CartContext";
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
-  )
+    <CartProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </CartProvider>
+  );
 }
 
-export default App
+export default App;

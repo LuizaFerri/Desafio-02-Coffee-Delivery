@@ -36,7 +36,7 @@ export const ContainerCoffe = styled.div`
     padding: 10px;
 `;
 
-export const ContainerCoffeCart = styled.div`
+export const CoffeCart = styled.button`
     background-color: #4B2995;
     width: 38px;
     border-radius: 8px;
@@ -112,6 +112,11 @@ export const Counter = styled.div`
         color:#8047F8;
         font-weight: bold;
         border-radius: 8px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: #C4C4C4;
+        }
     }
 `
 

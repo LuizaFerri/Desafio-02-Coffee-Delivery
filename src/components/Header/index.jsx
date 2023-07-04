@@ -1,3 +1,4 @@
+import { useContext, useEffect, useState } from "react";
 import logo from "../../assets/logo.svg";
 import {
   CartContainer,
@@ -7,8 +8,15 @@ import {
 } from "./styles";
 import { Link } from "react-router-dom";
 import { ShoppingCart, MapPin } from "@phosphor-icons/react";
+import { CartContext } from "../../Context/CartContext";
 
 export function Header() {
+  const { cart } = useContext(CartContext);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  useEffect(() => {
+    const quantity = cart.reduce((total, item) => total + item.quantidade, 0);
+    setTotalQuantity(quantity);
+  }, [cart]);
   return (
     <CartContainer>
       <div>
@@ -24,6 +32,7 @@ export function Header() {
         <Link to="/cart">
           <CartIcon>
             <ShoppingCart size={22} color="#C47F17" weight="fill" />
+            {totalQuantity > 0 && <span>{totalQuantity}</span>}
           </CartIcon>
         </Link>
       </StyledCardHeader>

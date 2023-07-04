@@ -12,14 +12,29 @@ export const StyledCardHeader = styled.div`
     align-items: center;`;
 
 export const CartIcon = styled.div`
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    background-color: #F1E9C9;
-    border-radius:6px;
-    display: flex;
-    align-items: center;
+    display: inline-flex;
+    padding: 8px;
     justify-content: center;
+    align-items: center;
+    gap: 4px;
+    background-color: #F1E9C9;
+    border-radius: 6px;
+
+    span{
+        display: flex;
+        width: 20px;
+        height: 20px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+       
+        border-radius: 1000px;
+        background-color: #C47F17;
+
+        font-size: 12px;
+        font-weight: 700;
+        color: #FFFFFF;
+    }
 `;
 
 export const LocalizedCard = styled.div`
