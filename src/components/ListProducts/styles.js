@@ -12,8 +12,19 @@ export const ContainerCoffes = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 40px;
-    max-width: 80%;
     margin-top: 80px;
+
+    @media(max-width: 1327px){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media(max-width: 1000px){
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media(max-width: 700px){
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const ImageCoffe = styled.img`
@@ -46,6 +57,7 @@ export const CoffeCart = styled.button`
     align-items: center;
     height: 38px;
     cursor: pointer;
+    border: none;
 
     &:hover{
         background-color: #8047F8;

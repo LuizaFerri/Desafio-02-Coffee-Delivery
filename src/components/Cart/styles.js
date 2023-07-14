@@ -16,8 +16,11 @@ export const Conteiner = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 0 20px;
-    max-width: 100%;
+    max-width: 70%;
   }
+
+
+
 `;
 
 export const DeliveryAddress = styled.div`
@@ -42,6 +45,9 @@ export const DeliveryAddress = styled.div`
 
   @media (max-width: 768px) {
     padding: 20px;
+    input{
+      width: 70%;
+    }
   }
 `;
 
@@ -77,6 +83,10 @@ export const ContainerPedido = styled.div`
   align-items: flex-start;
   gap: 24px;
   border-radius: 6px 44px;
+
+  @media (max-width: 581px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerPagamento = styled.div`
@@ -94,6 +104,11 @@ export const ContainerPagamento = styled.div`
     margin-bottom: 32px;
     color: #574f4d;
     margin-top: 5px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+
   }
 `;
 
@@ -118,6 +133,7 @@ export const ButtonPagamento = styled.button`
     &:hover {
       background-color: #d7d5d5;
     }
+    
 `
 
 
@@ -150,6 +166,12 @@ export const AlignItems = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: 500px) {
+      flex-wrap: wrap;
+      gap:10px
+  }
+
   }
   button {
     display: flex;
@@ -161,6 +183,11 @@ export const AlignItems = styled.div`
     border-radius: 6px;
     background-color: #e6e5e5;
     border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #D7D5D5;
+    }
   }
   p {
     color: #574f4d;
@@ -230,7 +257,16 @@ export const Total = styled.div`
     &:hover {
       background-color: #c69d2b;
     }
+
+    @media (max-width: 581px) {
+      font-size: 12px;
+    }
   }
+
+  @media (max-width: 581px) {
+    font-size: 12px;
+  }
+
 `;
 
 export const Counter = styled.div`
@@ -239,6 +275,7 @@ export const Counter = styled.div`
   align-items: center;
   background-color: #e6e5e5;
   border-radius: 8px;
+
 `;
 export const ButtonCounter = styled.button`
   background-color: #e6e5e5;
@@ -257,6 +294,12 @@ export const ButtonCounter = styled.button`
 export const ButtonsPaymentContainer = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const Form = styled.div`
@@ -265,5 +308,24 @@ export const Form = styled.div`
     align-items: flex-start;
     gap: 16px;
     align-self: stretch;
+
+    input {
+      &:focus {
+        outline: 1px solid #C47F17;
+      }
+    }
 `
 
+export const InputRua = styled.input`
+  width: 100%;
+`
+
+
+
+export const Error = styled.div`
+  display: flex;
+  color: red;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+`

@@ -17,6 +17,8 @@ import {
   DeliveryAddress,
   Form,
   Caption,
+  Error,
+  InputRua,
 } from "./styles.js";
 import {
   CurrencyDollar,
@@ -29,16 +31,34 @@ import {
   MapPinLine,
 } from "@phosphor-icons/react";
 import { CartContext } from "../../Context/CartContext.jsx";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function Cart() {
+  const [formError, setFormError] = useState(null);
   const navigate = useNavigate();
 
   const handleConfirmClick = () => {
-    navigate("/success");
+    if (
+      !address.cep ||
+      !address.logradouro ||
+      !address.numero ||
+      !address.complemento ||
+      !address.bairro ||
+      !address.cidade ||
+      !address.estado ||
+      !paymentMethod
+    ) {
+      setFormError("Preencha todos os campos");
+    } else if (!cart.length) {
+      setFormError("Adicione itens ao carrinho");
+    } else {
+      {
+        setFormError(null);
+        navigate("/success");
+      }
+    }
   };
-
   const taxa = 9.9;
   const {
     cart,
@@ -63,7 +83,6 @@ export function Cart() {
 
   const handlePaymentChange = (method) => {
     setPaymentMethod(method);
-    console.log(paymentMethod);
   };
 
   return (
@@ -75,10 +94,7 @@ export function Cart() {
             <Title>
               <MapPinLine size={20} color="#C47F17" /> Endereço de entrega
             </Title>
-            <Caption>
-              {" "}
-              informe o endereço onde deseja receber seu pedido
-            </Caption>
+            <Caption>informe o endereço onde deseja receber seu pedido</Caption>
             <Form>
               <input
                 type="number"
@@ -88,7 +104,7 @@ export function Cart() {
                 required
                 onChange={handleAddressChange}
               />
-              <input
+              <InputRua
                 type="text"
                 name="logradouro"
                 placeholder="Rua"
@@ -132,7 +148,7 @@ export function Cart() {
                 type="text"
                 name="estado"
                 placeholder="UF"
-                value={address.uf}
+                value={address.estado}
                 required
                 onChange={handleAddressChange}
               />
@@ -141,7 +157,6 @@ export function Cart() {
         </form>
         <ContainerPagamento>
           <Title>
-            {" "}
             <CurrencyDollar size={20} color="#8047F8" />
             Pagamento
           </Title>
@@ -186,8 +201,8 @@ export function Cart() {
                     <Counter>
                       <ButtonCounter>
                         <Minus />
-                      </ButtonCounter>{" "}
-                      {item.quantidade}{" "}
+                      </ButtonCounter>
+                      {item.quantidade}
                       <ButtonCounter>
                         <Plus />
                       </ButtonCounter>
@@ -211,11 +226,12 @@ export function Cart() {
                 <h2>Entrega </h2> <p>{total > 0 ? taxa.toFixed(2) : "0.00"}</p>
               </div>
               <div>
-                <h1>Total</h1>{" "}
+                <h1>Total</h1>
                 <span>R$ {total > 0 ? total.toFixed(2) : "0.00"}</span>
               </div>
               <button onClick={handleConfirmClick}>Confirmar</button>
             </Total>
+            <Error> {formError && <p>{formError}</p>}</Error>
           </CoffeeInfo>
         </ContainerPedido>
       </div>
