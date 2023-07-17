@@ -18,9 +18,6 @@ export const Conteiner = styled.div`
     padding: 0 20px;
     max-width: 70%;
   }
-
-
-
 `;
 
 export const DeliveryAddress = styled.div`
@@ -45,7 +42,7 @@ export const DeliveryAddress = styled.div`
 
   @media (max-width: 768px) {
     padding: 20px;
-    input{
+    input {
       width: 70%;
     }
   }
@@ -97,7 +94,7 @@ export const ContainerPagamento = styled.div`
   align-self: stretch;
   background-color: #f3f2f2;
   margin-top: 40px;
-  
+
   span {
     line-height: 130%;
     font-size: 14px;
@@ -108,34 +105,33 @@ export const ContainerPagamento = styled.div`
 
   @media (max-width: 768px) {
     padding: 20px;
-
   }
 `;
 
 export const ButtonPagamento = styled.button`
-   display: flex;
-    padding: 16px;
-    align-items: center;
-    gap: 12px;
-    flex: 1 0 0;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    height: 51px;
-    width: 200px;
-    font-size: 12px;
-    line-height: 160%;
-    text-transform: uppercase;
-    justify-content: center;
-    cursor: pointer;
-    background-color: ${(props) => (props.selected ? "#EBE5F9 !important" : "#E6E5E5")};
-    border: ${(props) => (props.selected ? '1px solid #8047F8 !important' : "none")};
-    &:hover {
-      background-color: #d7d5d5;
-    }
-    
-`
-
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 12px;
+  flex: 1 0 0;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  height: 51px;
+  width: 200px;
+  font-size: 12px;
+  line-height: 160%;
+  text-transform: uppercase;
+  justify-content: center;
+  cursor: pointer;
+  background-color: ${(props) =>
+    props.selected ? "#EBE5F9 !important" : "#E6E5E5"};
+  border: ${(props) =>
+    props.selected ? "1px solid #8047F8 !important" : "none"};
+  &:hover {
+    background-color: #d7d5d5;
+  }
+`;
 
 export const CoffeeCard = styled.div`
   display: flex;
@@ -169,9 +165,8 @@ export const AlignItems = styled.div`
 
     @media (max-width: 500px) {
       flex-wrap: wrap;
-      gap:10px
-  }
-
+      gap: 10px;
+    }
   }
   button {
     display: flex;
@@ -186,7 +181,7 @@ export const AlignItems = styled.div`
     cursor: pointer;
 
     &:hover {
-      background-color: #D7D5D5;
+      background-color: #d7d5d5;
     }
   }
   p {
@@ -266,29 +261,6 @@ export const Total = styled.div`
   @media (max-width: 581px) {
     font-size: 12px;
   }
-
-`;
-
-export const Counter = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #e6e5e5;
-  border-radius: 8px;
-
-`;
-export const ButtonCounter = styled.button`
-  background-color: #e6e5e5;
-  display: flex;
-  height: 38px;
-  padding: 8px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  border: none;
-  color: #8047f8;
-  font-weight: bold;
-  border-radius: 8px;
 `;
 
 export const ButtonsPaymentContainer = styled.div`
@@ -303,24 +275,22 @@ export const ButtonsPaymentContainer = styled.div`
 `;
 
 export const Form = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
 
-    input {
-      &:focus {
-        outline: 1px solid #C47F17;
-      }
+  input {
+    &:focus {
+      outline: 1px solid #c47f17;
     }
-`
+  }
+`;
 
 export const InputRua = styled.input`
   width: 100%;
-`
-
-
+`;
 
 export const Error = styled.div`
   display: flex;
@@ -328,4 +298,4 @@ export const Error = styled.div`
   font-size: 18px;
   align-items: center;
   justify-content: center;
-`
+`;

@@ -42,7 +42,7 @@ export const CartProvider = ({ children }) => {
   const adjustQuantity = (productId, quantity) => {
     setCart((oldCart) =>
       oldCart.map((item) =>
-        item.id === productId ? { ...item, quantity } : item
+        item.produto.id === productId ? { ...item, quantidade: quantity } : item
       )
     );
   };

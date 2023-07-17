@@ -44,9 +44,9 @@ export const ContentTitle = styled.div`
     padding: 20px;
   }
 
-    @media (max-width: 467px) {
+  @media (max-width: 467px) {
     margin-bottom: 20px;
-    }
+  }
 `;
 
 const BaseTitle = styled.span`
@@ -103,7 +103,6 @@ export const Content = styled.div`
   @media (max-width: 737px) {
     width: 100%;
   }
-  
 `;
 
 export const Infos = styled.div`

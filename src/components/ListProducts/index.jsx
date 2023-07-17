@@ -10,11 +10,10 @@ import {
   ContainerCoffeDescription,
   CartPrice,
   Price,
-  Counter,
 } from "./styles";
 import produtos from "../../cafes.json";
-import { Minus, Plus } from "@phosphor-icons/react";
 import { ShoppingCart } from "@phosphor-icons/react";
+import Counter from "../Counter";
 
 export function ListProducts() {
   const { addToCart } = useContext(CartContext);
@@ -56,15 +55,11 @@ export function ListProducts() {
               <p>{produto.description}</p>
               <CartPrice>
                 <Price> R${produto.price.toFixed(2)} </Price>
-                <Counter>
-                  <button onClick={() => decrementQuantity(produto.id)}>
-                    <Minus size={20} color="#8047F8" />
-                  </button>{" "}
-                  {quantity[produto.id] || 0}{" "}
-                  <button onClick={() => incrementQuantity(produto.id)}>
-                    <Plus size={20} color="#8047F8" />
-                  </button>
-                </Counter>
+                <Counter
+                  quantity={quantity[produto.id]}
+                  onIncrement={() => incrementQuantity(produto.id)}
+                  onDecrement={() => decrementQuantity(produto.id)}
+                />
                 <CoffeCart
                   onClick={() => addToCart(produto, quantity[produto.id])}
                   title="Adicionar ao carrinho"

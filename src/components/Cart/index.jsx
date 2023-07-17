@@ -7,10 +7,8 @@ import {
   // eslint-disable-next-line no-unused-vars
   Divider,
   Total,
-  Counter,
   CoffeeInfo,
   AlignItems,
-  ButtonCounter,
   CoffeeImage,
   ButtonsPaymentContainer,
   ButtonPagamento,
@@ -26,13 +24,12 @@ import {
   Bank,
   Money,
   Trash,
-  Minus,
-  Plus,
   MapPinLine,
 } from "@phosphor-icons/react";
 import { CartContext } from "../../Context/CartContext.jsx";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Counter from "../Counter/index.jsx";
 
 export function Cart() {
   const [formError, setFormError] = useState(null);
@@ -67,6 +64,8 @@ export function Cart() {
     setAddress,
     paymentMethod,
     setPaymentMethod,
+    adjustQuantity,
+    addToCart,
   } = useContext(CartContext);
   const totalCart = cart.reduce(
     (total, item) => total + item.produto.price * item.quantidade,
@@ -83,6 +82,25 @@ export function Cart() {
 
   const handlePaymentChange = (method) => {
     setPaymentMethod(method);
+  };
+
+  const handleIncrement = (productId) => {
+    const productInCart = cart.find((item) => item.produto.id === productId);
+    if (productInCart) {
+      adjustQuantity(productId, productInCart.quantidade + 1);
+    } else {
+      const productInfo = {};
+      addToCart(productInfo, 1);
+    }
+  };
+
+  const handleDecrement = (productId) => {
+    const productInCart = cart.find((item) => item.produto.id === productId);
+    if (productInCart && productInCart.quantidade > 1) {
+      adjustQuantity(productId, productInCart.quantidade - 1);
+    } else {
+      removeFromCart(productId);
+    }
   };
 
   return (
@@ -198,15 +216,11 @@ export function Cart() {
                 <AlignItems>
                   <h2>{item.produto.name}</h2>
                   <div>
-                    <Counter>
-                      <ButtonCounter>
-                        <Minus />
-                      </ButtonCounter>
-                      {item.quantidade}
-                      <ButtonCounter>
-                        <Plus />
-                      </ButtonCounter>
-                    </Counter>
+                    <Counter
+                      quantity={item.quantidade}
+                      onIncrement={() => handleIncrement(item.produto.id)}
+                      onDecrement={() => handleDecrement(item.produto.id)}
+                    />
                     <button onClick={() => removeFromCart(item.produto.id)}>
                       <Trash size={20} color="#8047F8" />
                       Remover

@@ -5,6 +5,7 @@ import {
   StyledCardHeader,
   CartIcon,
   LocalizedCard,
+  Quantity,
 } from "./styles";
 import { Link } from "react-router-dom";
 import { ShoppingCart, MapPin } from "@phosphor-icons/react";
@@ -30,9 +31,9 @@ export function Header() {
           <span>Alfenas, MG</span>
         </LocalizedCard>
         <Link to="/cart">
+          {totalQuantity > 0 && <Quantity>{totalQuantity}</Quantity>}
           <CartIcon>
             <ShoppingCart size={22} color="#C47F17" weight="fill" />
-            {totalQuantity > 0 && <span>{totalQuantity}</span>}
           </CartIcon>
         </Link>
       </StyledCardHeader>
