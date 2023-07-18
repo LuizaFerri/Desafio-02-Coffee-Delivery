@@ -1,12 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import cartReducer from "../reducer/cartReducer";
+import {
+  addToCart,
+  removeFromCart,
+  adjustQuantity,
+  setAddress,
+  setPaymentMethod,
+} from "../actions/cartActions";
 
 export const CartContext = createContext();
 
-// eslint-disable-next-line react/prop-types
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-
-  const [address, setAddress] = useState({
+const initialState = {
+  cart: [],
+  address: {
     cep: "",
     logradouro: "",
     numero: "",
@@ -14,50 +20,28 @@ export const CartProvider = ({ children }) => {
     bairro: "",
     cidade: "",
     estado: "",
-  });
-  const [paymentMethod, setPaymentMethod] = useState("");
+  },
+  paymentMethod: "",
+};
 
-  const addToCart = (produto, quantidade) => {
-    const itemExistente = cart.find((item) => item.id === produto.id);
-
-    if (itemExistente) {
-      setCart(
-        cart.map((item) =>
-          item.id === produto.id
-            ? { ...item, quantidade: item.quantidade + quantidade }
-            : item
-        )
-      );
-    } else {
-      setCart([...cart, { produto, quantidade }]);
-    }
-  };
-
-  const removeFromCart = (id) => {
-    setCart((currentCart) =>
-      currentCart.filter((item) => item.produto.id !== id)
-    );
-  };
-
-  const adjustQuantity = (productId, quantity) => {
-    setCart((oldCart) =>
-      oldCart.map((item) =>
-        item.produto.id === productId ? { ...item, quantidade: quantity } : item
-      )
-    );
-  };
+// eslint-disable-next-line react/prop-types
+export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   return (
     <CartContext.Provider
       value={{
-        cart,
-        addToCart,
-        removeFromCart,
-        adjustQuantity,
-        address,
-        setAddress,
-        paymentMethod,
-        setPaymentMethod,
+        cart: state.cart,
+        addToCart: (produto, quantidade) =>
+          dispatch(addToCart(produto, quantidade)),
+        removeFromCart: (id) => dispatch(removeFromCart(id)),
+        adjustQuantity: (productId, quantity) =>
+          dispatch(adjustQuantity(productId, quantity)),
+        address: state.address,
+        setAddress: (address) => dispatch(setAddress(address)),
+        paymentMethod: state.paymentMethod,
+        setPaymentMethod: (paymentMethod) =>
+          dispatch(setPaymentMethod(paymentMethod)),
       }}
     >
       {children}
